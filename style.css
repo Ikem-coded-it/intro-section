@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --Almost-White: hsl(0, 0%, 98%); 
+    --Medium-Gray: hsl(0, 0%, 41%); 
+    --Almost-Black: hsl(0, 0%, 8%);
+}
+
+@font-face {
+    font-family: "Epilogue";
+    src: url('./Epilogue/static/Epilogue-Light.ttf');
+}
+ 
+body {
+    font-family: "Epilogue";
+    font-weight: 500;
+    background-color: var(--Almost-White);
+    width: 100vw;
+    height: 100vh;
+}
+
+/* HEADER STYLES */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 30px 0 30px;
+    flex-wrap: wrap;
+    color: var(--Medium-Gray);
+    font-weight: 700;
+    font-size: 18px;
+    position: relative;
+}
+
+.menu {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.menu-items-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-items {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.menu-item-features {
+    position: absolute;
+    left: 15%;
+    top: 57%;
+}
+
+.menu-item-company {
+    position: absolute;
+    left: 25%;
+    top: 57%;
+}
+
+.menu-item-careers {
+    position: absolute;
+    left: 35%;
+}
+
+.menu-item-careers:hover {
+    cursor: pointer;
+    color: var(--Almost-Black);
+}
+
+.menu-item-about {
+    position: absolute;
+    left: 45%;
+}
+
+.menu-item-about:hover {
+    cursor: pointer;
+    color: var(--Almost-Black);
+}
+
+.dropdown-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.dropdown-btn:hover {
+    cursor: pointer;
+    color: var(--Almost-Black);
+}
+
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    width:  170px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 15px rgb(196, 195, 195);
+    font-size: 18px;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(40px);
+    transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+    pointer-events: auto;
+}
+
+.dropdown-content>div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-left: 30%;
+}
+
+.menu-item-company>.dropdown-content {
+    width: 150px;
+    height: 120px;
+    left: 0;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.menu-item-company>.dropdown-content>p {
+    margin-left: 20%;
+}
+
+.dropdown-content p:hover {
+    cursor: pointer;
+    color: var(--Almost-Black);
+}
+
+.menu-items a {
+    text-decoration: none;
+    color: var(--Medium-Gray);
+}
+
+.menu-auth {
+    display: flex;
+    gap: 30px;
+}
+
+.login-btn {
+    border: none;
+    background-color: var(--Almost-White);
+    cursor: pointer;
+    color: var(--Medium-Gray);
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.login-btn:hover {
+    cursor: pointer;
+    color: var(--Almost-Black);
+}
+
+.register-btn {
+    width: 100px;
+    height: 45px;
+    border-radius: 17px;
+    background-color: var(--Almost-White);
+    color: var(--Medium-Gray);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.register-btn:hover {
+    cursor: pointer;
+    color: var(--Almost-Black);
+    border-color: var(--Almost-Black)
+}
+
+.menu-btn {
+    position: absolute;
+    right: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 600px){
+    body {
+        border: 3px solid green;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .header {
+        width: 100vw;
+        height: 10%;
+        padding: 0;
+        margin: 0;
+        border: 1px solid green;
+    }
+
+    .menu-items-container {
+        border:1px solid black;
+        width: 60%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: absolute;
+        top: 0;
+        right: 0;
+        visibility: visible;
+    }
+
+    .menu-btn {
+        position: static;
+        visibility: visible;
+    }
+
+    .laptop-guy-image {
+        height: 100px;
+        width: 100px;
+    }
+}
