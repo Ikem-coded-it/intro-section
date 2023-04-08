@@ -37,10 +37,10 @@ body {
 }
 
 .menu {
-    width: 85%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    position: relative;
 }
 
 .menu-items-container {
@@ -58,19 +58,32 @@ body {
 
 .menu-item-features {
     position: absolute;
-    left: 15%;
-    top: 57%;
+    left: 5%;
+    top: 30%;
 }
 
 .menu-item-company {
     position: absolute;
-    left: 25%;
-    top: 57%;
+    left: 17%;
+    top: 30%;
+}
+
+.dropdown-btn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+}
+
+.dropdown-btn:hover {
+    cursor: pointer;
+    color: var(--Almost-Black);
 }
 
 .menu-item-careers {
     position: absolute;
-    left: 35%;
+    left: 30%;
 }
 
 .menu-item-careers:hover {
@@ -80,74 +93,12 @@ body {
 
 .menu-item-about {
     position: absolute;
-    left: 45%;
+    left: 40%;
 }
 
 .menu-item-about:hover {
     cursor: pointer;
     color: var(--Almost-Black);
-}
-
-.dropdown-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.dropdown-btn:hover {
-    cursor: pointer;
-    color: var(--Almost-Black);
-}
-
-.dropdown-content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-    width:  170px;
-    height: 150px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 3px 3px 15px rgb(196, 195, 195);
-    font-size: 18px;
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(40px);
-    transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
-    pointer-events: auto;
-}
-
-.dropdown-content>div {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    margin-left: 30%;
-}
-
-.menu-item-company>.dropdown-content {
-    width: 150px;
-    height: 120px;
-    left: 0;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.menu-item-company>.dropdown-content>p {
-    margin-left: 20%;
 }
 
 .dropdown-content p:hover {
@@ -196,6 +147,13 @@ body {
     border-color: var(--Almost-Black)
 }
 
+.close-menu-btn-container {
+    position: absolute;
+    right: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 .menu-btn {
     position: absolute;
     right: 0;
@@ -203,12 +161,77 @@ body {
     pointer-events: none;
 }
 
+/* Specific desktop styles for dropdown */
+
+@media only screen and (min-width: 600px) {
+
+    /* HEADER STYLES */
+    .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        width: 170px;
+        height: 150px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 3px 3px 15px rgb(196, 195, 195);
+        font-size: 18px;
+    }
+
+    .dropdown-content>div {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        margin-left: 30%;
+    }
+
+    .menu-item-company>.dropdown-content {
+        width: 150px;
+        height: 120px;
+        left: 0;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .menu-item-company>.dropdown-content>p {
+        margin-left: 20%;
+    }
+
+    .show {
+        opacity: 1;
+        transform: translateY(40px);
+        transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+        pointer-events: auto;
+    }
+}
+
+/* Mobile styles */
+
 @media only screen and (max-width: 600px){
+
+    /* HEADER STYLES */
     body {
-        border: 3px solid green;
         display: flex;
         flex-direction: column;
         gap: 30px;
+    }
+
+    .dark {
+        background: rgba(0, 0, 0, .65);
+        background-blend-mode: darken;
+        opacity: .7;
+        transition: background 1200ms ease, opacity 200ms ease;
     }
 
     .header {
@@ -216,26 +239,138 @@ body {
         height: 10%;
         padding: 0;
         margin: 0;
-        border: 1px solid green;
+        align-items: center;
+    }
+
+    .logo {
+        margin-left: 15px;
+    }
+
+    .menu {
+        opacity: 0;
+        width: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column-reverse;
+        position: fixed;
+        top: 0;
+        right: 0;
+        transition: width 600ms ease-out,
+            opacity 200ms ease-out;
+        pointer-events: none;
+        z-index: 1;
+        background-color: white;
+    }
+
+    .show-menu {
+        opacity: 1;
+        width: 60%;
+        transition: width 600ms ease-out,
+            opacity 100ms ease-out;
+        pointer-events: auto;
+        box-shadow: 3px 3px 10px solid rgb(196, 195, 195);
     }
 
     .menu-items-container {
-        border:1px solid black;
-        width: 60%;
-        height: 100vh;
+        height: 90%;
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .menu-items {
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 20px;
+        gap: 15px;
+    }
+
+    .menu-item-features {
+        position: static;
+    }
+
+    .menu-item-company {
+        position: static;
+        margin:0;
+    }
+
+    .menu-item-careers {
+        position: static;
+    }
+
+    .menu-item-about {
+        position: static;
+    }
+
+    .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        height: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: height 200ms ease;
+        font-size: 15px;
+        z-index: 1;
+        gap: 15px;
+        margin: 10px 0 0 20px;
+    }
+
+    .dropdown-content > div {
+        margin-left: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 15px;
+    }
+ 
+    .show {
+        opacity: 1;
+        height: fit-content;
+        transition: height 200ms ease;
+        pointer-events: auto;
+    }
+
+    .menu-auth {
+        width: 100%;
+        margin-top: 40px;
+        flex-direction: column;
         justify-content: center;
-        flex-wrap: wrap;
-        position: absolute;
-        top: 0;
-        right: 0;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .register-btn {
+        width: 80%;
+        height: 50px;
+    }
+
+    .close-menu-btn-container {
+        position: static;
         visibility: visible;
+        height: 10%;
+        display: flex;
+        pointer-events: auto;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .close-menu-btn {
+        margin-right: 15px;
+    }
+
+    .menu-btn-container {
+        position: static;
     }
 
     .menu-btn {
         position: static;
         visibility: visible;
+        margin-right: 15px;
+        cursor: pointer;
     }
 
     .laptop-guy-image {
