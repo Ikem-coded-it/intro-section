@@ -13,12 +13,17 @@
     font-family: "Epilogue";
     src: url('./Epilogue/static/Epilogue-Light.ttf');
 }
+
+@font-face {
+    font-family: "Epilogue-bold";
+    src: url('./Epilogue/static/Epilogue-ExtraBold.ttf');
+}
  
 body {
     font-family: "Epilogue";
     font-weight: 500;
     background-color: var(--Almost-White);
-    width: 100vw;
+    width: 98vw;
     height: 100vh;
 }
 
@@ -159,6 +164,64 @@ body {
     right: 0;
     visibility: hidden;
     pointer-events: none;
+}
+
+/* Main content styles for desktop */
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content {
+    display: flex;
+    height: 90%;
+    justify-content: stretch;
+    align-items: stretch;
+    margin: 50px 100px 0 100px;
+    width: 80%;
+}
+
+.left-main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 15%;
+}
+
+.heading {
+    font-family: "Epilogue-bold";
+    font-size: 65px;
+}
+
+.left-main-content p {
+    width: 60%;
+    color: var(--Medium-Gray);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.left-main-content button {
+    width: 30%;
+    height: 7%;
+    border-radius: 10px;
+    background-color: var(--Almost-Black);
+    color: var(--Almost-White);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.laptop-guy-image {
+    height: 100%;
+    width: 500px;
 }
 
 /* Specific desktop styles for dropdown */
@@ -376,5 +439,61 @@ body {
     .laptop-guy-image {
         height: 100px;
         width: 100px;
+    }
+
+    /* Main content styles for desktop */
+
+    main {
+        width: 100vw;
+        height: fit-content;
+    }
+
+    .main-content {
+        height: 100%;
+        width: 100%;
+        flex-direction: column-reverse;
+        justify-content: stretch;
+        align-items: stretch;
+        margin: 0;
+    }
+
+    .left-main-content {
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .heading-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 50px;
+    }
+
+    .heading {
+        font-size: 30px;
+    }
+
+    .left-main-content p {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left-main-content button {
+        width: 30%;
+        height: 40px;
+    }
+
+    .logos {
+        gap: 10px;
+        margin: 10px 5px 0 5px;
+    }
+
+    .laptop-guy-image {
+        height: 100%;
+        width: 100%;
     }
 }
