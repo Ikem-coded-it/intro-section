@@ -18,7 +18,7 @@
     font-family: "Epilogue-bold";
     src: url('./Epilogue/static/Epilogue-ExtraBold.ttf');
 }
- 
+
 body {
     font-family: "Epilogue";
     font-weight: 500;
@@ -159,6 +159,11 @@ body {
     pointer-events: none;
 }
 
+.menu-btn-container {
+    height: fit-content;
+    width: fit-content;
+}
+
 .menu-btn {
     position: absolute;
     right: 0;
@@ -213,6 +218,12 @@ main {
     font-size: 15px;
 }
 
+.left-main-content button:hover {
+    cursor: pointer;
+    background-color: var(--Almost-White);
+    color: var(--Almost-Black);
+}
+
 .logos {
     display: flex;
     align-items: center;
@@ -222,6 +233,14 @@ main {
 .laptop-guy-image {
     height: 100%;
     width: 500px;
+}
+
+footer {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
 }
 
 /* Specific desktop styles for dropdown */
@@ -444,7 +463,7 @@ main {
     /* Main content styles for desktop */
 
     main {
-        width: 100vw;
+        width: 98vw;
         height: fit-content;
     }
 
@@ -488,6 +507,7 @@ main {
     }
 
     .logos {
+        width: 100%;
         gap: 10px;
         margin: 10px 5px 0 5px;
     }

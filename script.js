@@ -8,13 +8,19 @@ function showPicture() {
     laptopGuyImage.classList.add('laptop-guy-image')
 
     if (window.innerWidth < 700) {
-        laptopGuyImage.setAttribute('src', './intro-section-with-dropdown-navigation-main/images/image-hero-mobile.png')
+        laptopGuyImage.setAttribute(
+            'src',
+            './intro-section-with-dropdown-navigation-main/images/image-hero-mobile.png'
+        )
 
         // also initialize sidebar functions if it's a mobile screen
         showSideBar()
         closeSideBar()
     } else {
-        laptopGuyImage.setAttribute('src', './intro-section-with-dropdown-navigation-main/images/image-hero-desktop.png')
+        laptopGuyImage.setAttribute(
+            'src', 
+            './intro-section-with-dropdown-navigation-main/images/image-hero-desktop.png'
+        )
     }
     laptopGuyImage.setAttribute('alt', 'laptop guy')
 
