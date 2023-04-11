@@ -55,6 +55,15 @@ function listen() {
     const showDropDownMenu = function(menu, dropDownButton) {
         dropDownButton.addEventListener('click', () => {
             menu.childNodes[3].classList.toggle('show')
+
+            // change arrow direction
+            let arrow = dropDownButton.childNodes[1];
+            let arrowCode = arrow.childNodes[1].getAttribute('d');
+            if (arrowCode == "m1 1 4 4 4-4") {
+                arrow.childNodes[1].setAttribute('d', 'm1 5 4-4 4 4')
+            } else {
+                arrow.childNodes[1].setAttribute('d', 'm1 1 4 4 4-4')
+            }
         })
         return
     }
